@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:galeria/components/menu_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key,
+    required this.title,
+    required this.modoEscuro,
+    required this.alterarTema,
+
+  });
   final String title;
+  final bool modoEscuro;
+  final ValueChanged<bool> alterarTema;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

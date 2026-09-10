@@ -19,7 +19,7 @@ class MenuDrawer extends StatelessWidget{
                 context,
                 MaterialPageRoute(
                   builder: (context) =>
-                      MyHomePage(title: "Galeria das boas"),
+                      MyHomePage(title: "Galeria das boas", modoEscuro: true, alterarTema: (bool value) {  },),
                 ),
               );
             },
