@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import '../components/menu_drawer.dart';
 
-class FormularioPage extends StatefulWidget {
-  const FormularioPage({super.key});
+class CadastroAlunoPage extends StatefulWidget {
+  const CadastroAlunoPage({super.key});
 
   @override
-  State<FormularioPage> createState() => _FormularioPageState();
+  State<CadastroAlunoPage> createState() => _CadastroAlunoPageState();
 }
 
-class _FormularioPageState extends State<FormularioPage> {
+class _CadastroAlunoPageState extends State<CadastroAlunoPage> {
   final _formKey = GlobalKey<FormState>();
   final nomeController = TextEditingController();
-  final emailController = TextEditingController();
-  final telefoneController = TextEditingController();
+  final idadeController = TextEditingController();
+  final cursoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Formulário")),
+      appBar: AppBar(title: const Text("Cadastro de Aluno")),
       drawer: const MenuDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -32,29 +32,28 @@ class _FormularioPageState extends State<FormularioPage> {
                 value == null || value.isEmpty ? "Digite o nome" : null,
               ),
               TextFormField(
-                controller: emailController,
-                decoration: const InputDecoration(labelText: "Email"),
-                keyboardType: TextInputType.emailAddress,
+                controller: idadeController,
+                decoration: const InputDecoration(labelText: "Idade"),
+                keyboardType: TextInputType.number,
                 validator: (value) =>
-                value == null || !value.contains('@') ? "Digite um email válido" : null,
+                value == null || value.isEmpty ? "Digite a idade" : null,
               ),
               TextFormField(
-                controller: telefoneController,
-                decoration: const InputDecoration(labelText: "Telefone"),
-                keyboardType: TextInputType.phone,
+                controller: cursoController,
+                decoration: const InputDecoration(labelText: "Curso"),
                 validator: (value) =>
-                value == null || value.isEmpty ? "Digite o telefone" : null,
+                value == null || value.isEmpty ? "Digite o curso" : null,
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Formulário enviado com sucesso!")),
+                      const SnackBar(content: Text("Aluno cadastrado com sucesso!")),
                     );
                   }
                 },
-                child: const Text("Enviar"),
+                child: const Text("Cadastrar"),
               ),
             ],
           ),

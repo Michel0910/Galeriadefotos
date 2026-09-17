@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:galeria/screens/homepage.dart';
+import '../components/menu_drawer.dart';
+import 'screens/login_page.dart';
+import 'screens/home_page.dart';
+import 'screens/calculadora_page.dart';
+import 'screens/cadastro_aluno_page.dart';
+import 'screens/cursos_page.dart';
+
+
+
 
 void main() {
   runApp(const MyApp());
@@ -11,19 +19,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Galeria de Fotos',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-
+        primarySwatch: Colors.blue,
       ),
-
-      home: MyHomePage(title: 'Flutter Demo', modoEscuro: true,
-        alterarTema: (bool value){},
-
-      ),
-
+      // Tela inicial do app → Login
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) =>  LoginPage(),
+        '/home': (context) => HomePage(),
+        '/calculadora': (context) =>  CalculadoraPage(),
+        '/cadastro': (context) =>  CadastroAlunoPage(),
+        '/cursos': (context) =>  CursosPage(),
+      },
     );
-
   }
 }
 

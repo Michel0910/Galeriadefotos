@@ -1,31 +1,27 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:galeria/screens/galeria_page.dart';
-
-import '../main.dart';
+import '../screens/home_page.dart';
+import '../screens/galeria_page.dart';
 import '../screens/formulario_page.dart';
-import '../screens/homepage.dart';
 
-class MenuDrawer extends StatelessWidget{
+class MenuDrawer extends StatelessWidget {
+  const MenuDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         children: [
           ListTile(
-            title: Text("Home"),
+            title: const Text("Home"),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      MyHomePage(title: "Galeria das boas", modoEscuro: true, alterarTema: (bool value) {  },),
-                ),
+                MaterialPageRoute(builder: (context) => const HomePage()),
               );
             },
           ),
           ListTile(
-            title: Text("Cuidado..."),
+            title: const Text("Galeria"),
             onTap: () {
               Navigator.push(
                 context,
@@ -34,17 +30,16 @@ class MenuDrawer extends StatelessWidget{
             },
           ),
           ListTile(
-            title: Text("Formulario"),
+            title: const Text("Formulário"),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => FormularioPage()),
+                MaterialPageRoute(builder: (context) => const FormularioPage()),
               );
             },
-          )
+          ),
         ],
       ),
     );
   }
-
 }
